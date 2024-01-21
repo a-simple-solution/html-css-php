@@ -1,0 +1,15 @@
+/* Example of how to target a specific tag, in this case <section>, with css */
+section {
+    font-weight: bold; /**/
+}
+
+/* Example of how to target a specific class, in this case .section_class, with css */
+.section_class {
+    color:purple;
+}
+
+/* Example of how to target a unique id, in this case .unique_id, with css */
+#unique_id {
+    color:orange;
+    font-size: 50px;
+}

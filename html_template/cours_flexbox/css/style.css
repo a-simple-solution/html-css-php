@@ -1,0 +1,52 @@
+* {
+    text-align: center; /* We want the text of all the document to be centered*/
+    margin: 0; /* No margin in main document */
+    padding: 0; /* No padding in main document */
+    background-color: floralwhite; /* We changed the background color */
+}
+
+
+/* Show the row flex display */
+
+#container {
+    width: 100%; /* We want that the div with id "container" to take all the available width*/
+    display: flex; /* We want that the container react like a flex box*/
+    flex-direction: row; /* We precise how we want the children elements to be aligned*/
+    justify-content: space-around; /* We precise how to display the content inside the flexbox */
+}
+
+#one {
+    background-color: red; /* We change the background color to red to see the result better */
+    height: 50px; /* We define 50 pixels of height */
+    width: 100%; /* We want the div to take 100% of the space available */
+}
+
+#two {
+    background-color: blue; /* We change the background color to blue to see the result better */
+    height: 50px; /* We define 50 pixels of height */
+    width: 100%; /* We want the div to take 100% of the space available */
+}
+
+
+/* Show the row flex display */
+
+#second_container {
+    width: 100%; /* We want that the div with id "container" to take all the available width*/
+    display: flex; /* We want that the container react like a flex box*/
+    flex-direction: column; /* We precise how we want the children elements to be aligned*/
+    justify-content: space-around; /* We precise how to display the content inside the flexbox */
+    margin-top: 100px; /* We want 100px of space on the top of the second_container */
+}
+
+#three {
+    background-color: purple; /* We change the background color to purple to see the result better */
+    height: 50px; /* We define 50 pixels of height */
+    width: 100%; /* We want the div to take 10% of the space available */
+}
+
+#four {
+    background-color: orange; /* We change the background color to blue to see the result better */
+    height: 50px; /* We define 50 pixels of height */
+    width: 100%; /* We want the div to take 100% of the space available */
+}
+
