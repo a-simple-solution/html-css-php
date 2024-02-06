@@ -1,5 +1,11 @@
-html_template/.idea
+.idea
 .DS_Store
+
+html_template/.idea
 html_template/.DS_Store
 html_template/*/.DS_Store
-.idea
+
+
+php_examples/.idea
+php_examples/.DS_Store
+php_examples/*/.DS_Store
