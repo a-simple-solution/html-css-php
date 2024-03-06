@@ -1,7 +1,7 @@
 <?php 
 
-/* Ici nous découvrons les exemples de fonctions */
-/* Dans ce fichier vous pouvez trouver deux fonctions différentes */
+/* Ici, nous découvrons les exemples de fonctions */
+/* Dans ce fichier, vous pouvez trouver deux fonctions différentes */
 
 /* Documentation : https://www.php.net/manual/fr/language.functions.php */
 
@@ -9,14 +9,14 @@
 
 /* Cette fonction a pour objectif de sauter 3 lignes lorsqu'on l'appelle */
 function jump_3_lines() {
-    /* Ici j'utilise la fonction echo pour afficher 3 balises <br> donc trois saut de ligne */
+    /* Ici, j'utilise la fonction echo pour afficher 3 balises <br> donc trois sauts de ligne */
     /* Documentation : https://www.php.net/manual/en/function.echo.php */
     echo "<br><br><br>";
 }
 
 
 /* Cette fonction a pour objectif de générer une suite de nombre en fonction du nombre passé en paramètre */
-/* Si par exemple je passe en argument ($max_number) 3, il me générera des chiffre de 0 à 3 */
+/* Si par exemple, je passe en argument ($max_number) 3, il me générera des chiffres de 0 à 3 */
 /* Un argument est une variable ou une valeur qu'on passe à la fonction lorsqu'on l'appelle */
 /* Documentation : https://www.php.net/manual/fr/language.functions.php */
 function generate_numbers($max_number)
@@ -27,16 +27,38 @@ function generate_numbers($max_number)
     /*Quand ma fonction est appelé, elle affiche la phrase ci-dessous */
     echo "Exemple de génération de nombre.";
 
-    /* Ici je fais une boucle qui va afficher les nombres */
+    /* Ici, je fais une boucle qui va afficher les nombres */
     /* Documentation : https://www.php.net/manual/en/control-structures.for.php */
     for($i = 0; $i <= $max_number; $i++) {
-        /* A chaque tour de boucle je saute 3 lignes */
+        /* À chaque tour de boucle, je saute 3 lignes */
         jump_3_lines();
-        /* A chaque tour de boucle j'affiche la valeur courante */
+        /* À chaque tour de boucle, j'affiche la valeur courante */
         echo "Current number $i";
 
     }
 }
+function displayFooter() {
+    echo "<footer>
+    <address>
+        <!-- Ici, nous préfixons avec \"mailto :\" afin que le système comprenne automatiquement qu'un mail doit être écrit -->
+        <a href=\"mailto:example@email.example\">Nous écrire</a>
+        <!-- Ici, nous préfixons avec \"tel :\" afin que le système comprenne automatiquement qu'un appel doit être passé -->
+        <a href=\"tel:+33600000000\">Nous Appeler</a>
+    </address>
+</footer>";
+}
+
+
+
+function displayNavigation() {
+    $links = ['index.php', 'forum.php', 'contact.php'];
+    $names = ['Index', 'Forum', 'Contact'];
+
+    for($i = 0; $i < count($links); $i++) {
+        echo "<a href=\"$links[$i]\"> $names[$i] </a>";
+    }
+}
+
 
 
 

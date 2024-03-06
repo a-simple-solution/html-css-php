@@ -23,6 +23,7 @@ header {
 nav {
     height: 100px;
     width: 100%;
+    background-color: #025939;
     /* Je transforme ma nav en flexbox pour aligner correctement les éléments de navigation */
     display: flex;
     justify-content: space-evenly;
@@ -60,7 +61,7 @@ a:hover {
 }
 
 p {
-    color: white;
+    color: black;
     font-weight: bold;
 }
 

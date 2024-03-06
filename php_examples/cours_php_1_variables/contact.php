@@ -14,12 +14,22 @@
 <!-- Cette partie concerne le header. Nous avons décidé d'inclure la navigation dans le header. Ceci n'est pas obligatoire, c'est un choix -->
 <header>
     <!-- Ici, j'encapsule l'image de mon logo par une balise <a>. Le HREF pointe vers l'accueil. Quand l'utilisateur clique sur le logo, il est redirigé sur l'accueil -->
-    <a href="index.html">
+    <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element/a -->
+    <a href="index.php">
+        <!-- Ici, je positionne une image qui fait office de logo -->
+        <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element/img -->
         <img src="img/logo.png" alt="Un logo représentant Monkey D Luffy" id="logo">
     </a>
+    <!-- Ici, nous définissons l'espace réservé à la navigation -->
+    <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element/nav -->
     <nav>
+        <!-- Ici, nous avons 3 ancres qui permettent la navigation entre les pages -->
+        <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element/a -->
+        <!-- Navigation vers la page Accueil-->
         <a href="index.php">Accueil</a>
+        <!-- Navigation vers la page Forum -->
         <a href="forum.php">Forum</a>
+        <!-- Navigation vers la page Contact -->
         <a href="contact.php">Contact</a>
     </nav>
 </header>
@@ -31,7 +41,7 @@
     /* Ceci est un exemple de variable en PHP */
     /* Ma variable est de type chaine de caractères */
     /* Pour plus d'informations sur les types existant : https://www.php.net/manual/fr/language.types.php */
-    $exemple="<h1>Titre Accueil en PHP</h1>";
+    $exemple = "<h1>Titre Contact en PHP</h1>";
 
     /* Echo me permet d'afficher cette variable */
     /* https://www.php.net/manual/en/function.echo.php */
