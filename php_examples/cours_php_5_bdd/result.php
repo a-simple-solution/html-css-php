@@ -1,10 +1,11 @@
+<?php require_once("php/database.php") ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <!-- Cela définit l'encodage des caractères de notre page -->
     <meta charset="UTF-8">
     <!-- Il s'agit du nom de l'onglet -->
-    <title>My Blog - Forum</title>
+    <title>My Blog - Contact</title>
     <!-- Ceci nous permet de faire le lien avec notre fichier css -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -20,21 +21,30 @@
 <?php require_once('php/nav.php') ?>
 
 <main>
-    <!-- Ici, j'utilise le PHP pour générer mon titre HTML -->
 
-    <?php 
+<?php
 
-    /* Ceci est un exemple de variable en PHP */
-    /* Ma variable est de type chaine de caractères */
-    /* Pour plus d'informations sur les types existant : https://www.php.net/manual/fr/language.types.php */
-    $exemple="<h1>Titre Forum en PHP</h1>";
+// Définir les données du formulaire
+$nom = $_POST['nom'];
+$prenom = $_POST['prenom'];
+$age = $_POST['age'];
+$email = $_POST['email'];
+$mot_de_passe = $_POST['mot_de_passe'];
 
-    /* Echo me permet d'afficher cette variable */
-    /* Documentation : https://www.php.net/manual/en/function.echo.php */
-    echo $exemple;
+if(!isset($nom) || !isset($prenom) || !isset($age)|| !isset($email) || !isset($mot_de_passe)) {
+    header('Location: register.php');
+}
 
-    ?>
-    
+// Mettre en place le prepare
+
+// Mettre en place les bindParam
+
+// Mettre en place l'execute
+
+// Mettre en place la vérification comme dans le PowerPoint
+
+?>
+
 </main>
 
 <!-- J'utilise le PHP afin de factoriser mon code, ici j'importe le footer sur mes pages afin que le code du footer n'existe qu'à un seul endroit -->

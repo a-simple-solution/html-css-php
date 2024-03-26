@@ -23,10 +23,18 @@
 
 <?php 
 
-// Ecrivez votre code de résultat ici 
+$nom = $_POST['nom'];
+$prenom = $_POST['prenom'];
+$age = $_POST['age'];
+$email = $_POST['email'];
+
+if(!isset($nom) || !isset($prenom) || !isset($age)  || !isset($email)) {
+    header('Location: contact.php');
+}
 
 
-?>
+
+echo "<p> Bonjour, $prenom $nom tu as $age et ton adrese mail est $email <p>";?> 
 
 </main>
 

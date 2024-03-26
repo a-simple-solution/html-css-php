@@ -34,7 +34,6 @@
     echo $exemple;
 
     ?>
-    
 </main>
 
 <!-- J'utilise le PHP afin de factoriser mon code, ici j'importe le footer sur mes pages afin que le code du footer n'existe qu'à un seul endroit -->
