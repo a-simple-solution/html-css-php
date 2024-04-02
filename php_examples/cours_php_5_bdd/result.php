@@ -24,6 +24,9 @@
 
 <?php
 
+// Définir la méthode de requête
+$_SERVER['REQUEST_METHOD'] = 'POST';
+
 // Définir les données du formulaire
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
@@ -35,13 +38,27 @@ if(!isset($nom) || !isset($prenom) || !isset($age)|| !isset($email) || !isset($m
     header('Location: register.php');
 }
 
-// Mettre en place le prepare
+$mot_de_passe_hache = password_hash($mot_de_passe, PASSWORD_DEFAULT);
 
-// Mettre en place les bindParam
 
-// Mettre en place l'execute
+$request = $pdo->prepare('INSERT INTO utilisateur (nom, prenom, age, email, mot_de_passe) VALUES (:nom, :prenom, :age, :email, :mot_de_passe)');
 
-// Mettre en place la vérification comme dans le PowerPoint
+
+$request->bindParam(':nom', $nom);
+$request->bindParam(':prenom', $prenom);
+$request->bindParam(':age', $age);
+$request->bindParam(':email', $email);
+$request->bindParam(':mot_de_passe', $mot_de_passe);
+
+
+$request->execute();
+
+
+if ($request->rowCount() === 1) {
+    echo 'L\'utilisateur a été ajouté avec succès.';
+} else {
+    echo 'Une erreur est survenue lors de l\'ajout de l\'utilisateur.';
+}
 
 ?>
 
