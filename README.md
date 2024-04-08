@@ -1,6 +1,6 @@
-# Développment Web : HTML, CSS et PHP
+# Development Web : HTML, CSS et PHP
 
-### HTML CSS PHP Templates pour les étudiants :
+### HTML CSS PHP Templates pour les étudiants de 1ʳᵉ année :
 
 Ce "repository" contient des examples pour les élèves
 

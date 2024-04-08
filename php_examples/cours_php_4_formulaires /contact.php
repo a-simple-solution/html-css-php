@@ -21,6 +21,8 @@
 
 <main>
 
+<!-- Ici je mets en place le formulaire -->
+<!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element/form -->
 <form action="result.php" method="post">
         <label for="nom">Nom</label>
         <input type="text" id="nom" name="nom" required>

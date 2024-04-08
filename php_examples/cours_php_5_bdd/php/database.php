@@ -1,12 +1,13 @@
 <?php
 
-// Définition des informations de connexion
+/* Ici, nous définissons les informations de connexion */
 $host = "localhost";
 $dbname = "bdd";
 $username = "root";
 $password = "root";
 
-// Création d'une instance PDO
+/* Création d'une instance PDO */
+/* https://www.php.net/manual/fr/pdo.connections.php */
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     echo "Connexion à la base de données réussie !";

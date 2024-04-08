@@ -37,6 +37,8 @@ function generate_numbers($max_number)
 
     }
 }
+
+/* Cette fonction a pour objectif d'afficher le footer */
 function displayFooter() {
     echo "<footer>
     <address>
@@ -50,6 +52,7 @@ function displayFooter() {
 
 
 
+/* Cette fonction a pour objectif d'afficher dynamiquement la navigation */
 function displayNavigation() {
     $links = ['index.php', 'forum.php', 'contact.php'];
     $names = ['Index', 'Forum', 'Contact'];
