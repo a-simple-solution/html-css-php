@@ -64,6 +64,16 @@ $request->bindParam(':mot_de_passe', $mot_de_passe);
 $request->execute();
 
 
+$get_request =  'SELECT * FROM utilisateur';
+
+$result = $pdo->query($sql);
+
+var_dump($result);
+
+foreach  ($result as $user) {
+    print $row['name'];
+}
+
 /* On vérifie que la requête a bien été effectuée */
 if ($request->rowCount() === 1) {
     echo 'L\'utilisateur a été ajouté avec succès.';
