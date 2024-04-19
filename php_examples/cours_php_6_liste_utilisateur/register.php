@@ -24,20 +24,40 @@
 <!-- Ici je mets en place le formulaire -->
 <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element/form -->
     <form action="result.php" method="post">
-        <label for="nom">Nom</label>
-        <input type="text" id="nom" name="nom" required>
+        <div class="form_input">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" required>
+        </div>
         <br>
-        <label for="prenom">Prénom</label>
-        <input type="text" id="prenom" name="prenom" required>
+
+        <div class="form_input">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" required>
+        </div>
         <br>
-        <label for="age">Age</label>
-        <input type="number" id="age" name="age" required>
+
+        <div class="form_input">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" required>
+        </div>
         <br>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+
+        <div class="form_input">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
         <br>
-        <label for="mot_de_passe">Mot de passe</label>
-        <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+
+        <div class="form_input">
+            <label for="mot_de_passe">Mot de passe</label>
+            <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+        </div>
+        <br>
+        
+        <div class="form_input">
+            <label for="confirmation_de_mot_de_passe">Confirmation de mot de passe</label>
+            <input type="password" id="confirmation_de_mot_de_passe" name="confirmation_de_mot_de_passe" required>
+        </div>
         <br>
         <button type="submit">Valider</button>
     </form>

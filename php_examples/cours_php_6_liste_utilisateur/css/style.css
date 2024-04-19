@@ -1,0 +1,148 @@
+/* Le margin et le padding qui met une ligne blanche sur le site, sont ceux du body */
+body {
+    margin: 0;
+    padding: 0;
+    /* Je demande à mon body de faire au minimum la taille de l'écran */
+    min-height: 100vh;
+    /* Je transforme mon body en flexbox */
+    display: flex;
+    /* Je veux que mon body aligne les élements du haut vers le bas */
+    flex-direction: column;
+}
+
+header {
+    height: 100px;
+    width: 100%;
+    background-color: #025939;
+    /* Je transforme mon header en flexbox pour aligner correctement mon logo et les éléments de mon menu */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav {
+    height: 100px;
+    width: 100%;
+    background-color: #025939;
+    /* Je transforme ma nav en flexbox pour aligner correctement les éléments de navigation */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+/* Le contenu principal de mes pages, (sauf le footer et le header), se situe dans les balise <main> */
+main {
+    width: 100%;
+    color: #025939;
+    font-weight: bold;
+    /* IMPORTANT : pour éviter toute déformation et afin que ma partie central prenne toute la place disponible j'utilise la propriété flex-grow */
+    /* https://developer.mozilla.org/fr/docs/Web/CSS/flex-grow */
+    flex-grow: 1;
+}
+
+a {
+    /* Ces trois propriétés permettent de ne pas avoir de style sur mes balises <a> */
+    text-decoration: inherit;
+    font-style: normal;
+    color: white;
+    /* ----- */
+
+    font-weight: bold;
+    font-size: larger;
+
+}
+
+/* Ici j'ajoute ":hover", cela dit au navigateur que quand je passe ma souris, il doit appliquer cette propriété CSS. Passez votre curseur sur les éléments du menu */
+/* Il existe d'autre selectors de ce type, ci-dessous un lien */
+/* https://developer.mozilla.org/fr/docs/Web/CSS/:hover */
+a:hover {
+    color: lightgreen;
+}
+
+p {
+    color: black;
+    font-weight: bold;
+    margin: 0;
+}
+
+footer {
+    background-color: #025939;
+    height: 100px;
+    width: 100%;
+    /* Je transforme mon footer en flexbox pour aligner correctement les éléments de mon footer */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+address {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Cette partie concerne le css qui cible des Class que nous avons mis dans le code */
+
+.current_page {
+    color: lightgreen;
+}
+
+/* Cette partie concerne le css qui cible des ID que nous avons mis dans le code */
+
+#logo {
+    height: 48px;
+    width: 48px;
+    margin-left: 20px;
+}
+
+.user {
+    background-color: #025939;
+    color: white;
+    padding: 10px;
+    border-top: solid 2px;
+    border-color: lightgreen;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+form {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.form_input {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+}
+
+input {
+    border: solid 1px black;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 3px;
+}
+
+button {
+    background-color: #025939;
+    color: white;
+    font-weight: bold;
+    border: 0;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#user_container {
+    width: 100%;
+}
+
