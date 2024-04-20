@@ -60,7 +60,7 @@ if($confirmation_de_mot_de_passe == $mot_de_passe) {
     $request->bindParam(':prenom', $prenom);
     $request->bindParam(':age', $age);
     $request->bindParam(':email', $email);
-    $request->bindParam(':mot_de_passe', $mot_de_passe);
+    $request->bindParam(':mot_de_passe', $mot_de_passe_hache);
 
 
     /* On execute la requête */
