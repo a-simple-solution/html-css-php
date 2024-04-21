@@ -8,9 +8,12 @@
     <title>Mon Blog - Inscription</title>
     <!-- Ceci nous permet de faire le lien avec notre fichier css -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Ceci nous permet d'ajouter un favicon -->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
 </head>
 
 <body>
+
     <!-- J'utilise le PHP afin de factoriser mon code. Ici, j'importe le header sur mes pages afin que le code du header n'existe qu'à un seul endroit -->
     <!-- Documentation : https://www.php.net/manual/en/function.require-once.php -->
     <?php require_once ('php/header.php') ?>

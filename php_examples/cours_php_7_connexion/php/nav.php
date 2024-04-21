@@ -9,6 +9,6 @@
     <a href="forum.php">Forum</a>
     <!-- Navigation vers la page Contact -->
     <a href="register.php">Inscription</a>
-    <!-- Navigation vers la page Utilisateurs -->
-    <a href="users.php">Utilisateurs</a>
+    <!-- Navigation vers la page Contact -->
+    <a href="login.php">Connexion</a>
 </nav>

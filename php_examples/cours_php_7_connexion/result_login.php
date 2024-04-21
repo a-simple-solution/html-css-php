@@ -8,9 +8,14 @@
     <title>Mon Blog - Contact</title>
     <!-- Ceci nous permet de faire le lien avec notre fichier css -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Ceci nous permet d'ajouter un favicon -->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
 </head>
 
 <body>
+    <!--  Ici j'importe le fichier database.php afin que ma base de données soit accessible au sein de ce fichier -->
+    <!-- Documentation : https://www.php.net/manual/en/function.require-once.php -->
+    <?php require_once ("php/database.php") ?>
 
     <!-- J'utilise le PHP afin de factoriser mon code. Ici, j'importe le header sur mes pages afin que le code du header n'existe qu'à un seul endroit -->
     <!-- Documentation : https://www.php.net/manual/en/function.require-once.php -->
@@ -21,20 +26,30 @@
     <?php require_once ('php/nav.php') ?>
 
     <main>
-        <!-- Ici, j'utilise le PHP pour générer mon titre HTML -->
 
         <?php
 
-        /* Ceci est un exemple de variable en PHP */
-        /* Ma variable est de type chaine de caractères */
-        /* Pour plus d'informations sur les types existant : https://www.php.net/manual/fr/language.types.php */
-        $exemple = "<h1>Titre Contact en PHP</h1>";
+        /* A partir des variables $_POST, je récupère l'ensemble des informations du formulaire */
+        $email = $_POST['email'];
+        $mot_de_passe = $_POST['mot_de_passe'];
 
-        /* Echo me permet d'afficher cette variable */
-        /* Documentation : https://www.php.net/manual/en/function.echo.php */
-        echo $exemple;
+
+        /* Avec la fonction "isset", je vérifie que toutes les données sont présentes */
+        /* https://www.php.net/manual/fr/function.isset.php */
+        if (!isset($email) || !isset($mot_de_passe)) {
+            /* S'il manque des données je redirige l'utilisateur */
+            /* https://www.php.net/manual/fr/function.header.php */
+            header('Location: login.php');
+        }
+
+        /* TODO : Mettre en place la récupération d'un utilisateur à partir de son email */
+
+        /* TODO : Mettre en place la vérification de la connexion d'un utilisateur et écrire dans la variable $_SESSION */
+
+        /* TODO : En cas d'échec, afficher un message d'erreur  */
 
         ?>
+
     </main>
 
     <!-- J'utilise le PHP afin de factoriser mon code, ici j'importe le footer sur mes pages afin que le code du footer n'existe qu'à un seul endroit -->

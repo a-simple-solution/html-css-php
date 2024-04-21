@@ -23,6 +23,7 @@ header {
 nav {
     height: 100px;
     width: 100%;
+    background-color: #025939;
     /* Je transforme ma nav en flexbox pour aligner correctement les éléments de navigation */
     display: flex;
     justify-content: space-evenly;
@@ -60,8 +61,9 @@ a:hover {
 }
 
 p {
-    color: red;
+    color: black;
     font-weight: bold;
+    margin: 0;
 }
 
 footer {
@@ -93,3 +95,66 @@ address {
     width: 48px;
     margin-left: 20px;
 }
+
+.user {
+    background-color: #025939;
+    color: white;
+    padding: 10px;
+    border-top: solid 2px;
+    border-color: lightgreen;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+form {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.form_input {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+}
+
+input {
+    border: solid 1px black;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 3px;
+}
+
+button {
+    background-color: #025939;
+    color: white;
+    font-weight: bold;
+    border: 0;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#user_container {
+    width: 100%;
+}
+
+#welcome {
+    width: 100%;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: white;
+    background-color: #025939;
+}
+

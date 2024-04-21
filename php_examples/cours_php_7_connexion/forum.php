@@ -8,6 +8,8 @@
     <title>Mon Blog - Forum</title>
     <!-- Ceci nous permet de faire le lien avec notre fichier css -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Ceci nous permet d'ajouter un favicon -->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
 </head>
 
 <body>

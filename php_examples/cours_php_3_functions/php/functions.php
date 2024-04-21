@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /* Ici, nous découvrons les exemples de fonctions */
 /* Dans ce fichier, vous pouvez trouver deux fonctions différentes */
@@ -8,7 +8,8 @@
 
 
 /* Cette fonction a pour objectif de sauter 3 lignes lorsqu'on l'appelle */
-function jump_3_lines() {
+function jump_3_lines()
+{
     /* Ici, j'utilise la fonction echo pour afficher 3 balises <br> donc trois sauts de ligne */
     /* Documentation : https://www.php.net/manual/en/function.echo.php */
     echo "<br><br><br>";
@@ -29,7 +30,7 @@ function generate_numbers($max_number)
 
     /* Ici, je fais une boucle qui va afficher les nombres */
     /* Documentation : https://www.php.net/manual/en/control-structures.for.php */
-    for($i = 0; $i <= $max_number; $i++) {
+    for ($i = 0; $i <= $max_number; $i++) {
         /* À chaque tour de boucle, je saute 3 lignes */
         jump_3_lines();
         /* À chaque tour de boucle, j'affiche la valeur courante */
@@ -39,7 +40,8 @@ function generate_numbers($max_number)
 }
 
 /* Cette fonction a pour objectif d'afficher le footer */
-function displayFooter() {
+function displayFooter()
+{
     echo "<footer>
     <address>
         <!-- Ici, nous préfixons avec \"mailto :\" afin que le système comprenne automatiquement qu'un mail doit être écrit -->
@@ -53,11 +55,12 @@ function displayFooter() {
 
 
 /* Cette fonction a pour objectif d'afficher dynamiquement la navigation */
-function displayNavigation() {
+function displayNavigation()
+{
     $links = ['index.php', 'forum.php', 'contact.php'];
     $names = ['Index', 'Forum', 'Contact'];
 
-    for($i = 0; $i < count($links); $i++) {
+    for ($i = 0; $i < count($links); $i++) {
         echo "<a href=\"$links[$i]\"> $names[$i] </a>";
     }
 }

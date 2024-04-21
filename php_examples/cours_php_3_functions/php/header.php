@@ -1,7 +1,7 @@
 <!-- J'importe grâce à require_once toutes les fonctions définies dans le fichier functions.php -->
 <!-- Le fait de l'importer ici, me permet de ne pas avoir à l'importer dans mes autres fichiers où j'importe le header -->
 <!-- Documentation : https://www.php.net/manual/en/function.require-once.php -->
-<?php require_once('functions.php') ?>
+<?php require_once ('functions.php') ?>
 
 <!-- C'est ici que mon code HTML que j'importe en PHP est écrit -->
 

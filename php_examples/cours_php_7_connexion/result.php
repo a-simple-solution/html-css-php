@@ -5,9 +5,11 @@
     <!-- Cela définit l'encodage des caractères de notre page -->
     <meta charset="UTF-8">
     <!-- Il s'agit du nom de l'onglet -->
-    <title>Mon Blog - Contact</title>
+    <title>Mon Blog - Inscription</title>
     <!-- Ceci nous permet de faire le lien avec notre fichier css -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Ceci nous permet d'ajouter un favicon -->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
 </head>
 
 <body>
@@ -24,6 +26,7 @@
     <?php require_once ('php/nav.php') ?>
 
     <main>
+
         <?php
 
         /* A partir des variables $_POST, je récupère l'ensemble des informations du formulaire */
@@ -42,7 +45,6 @@
             header('Location: register.php');
         }
 
-        /* Je vérifie que les mots de passe correspondent */
         if ($confirmation_de_mot_de_passe == $mot_de_passe) {
 
             /* Ici je hash le mot de passe, afin qu'il ne soit pas en clair dans la base de données */
@@ -78,6 +80,7 @@
             /* J'affiche un message d'erreur si les mots de passe ne correspondent pas */
             echo 'Les mots de passe ne correspondent pas';
         }
+
 
         ?>
 

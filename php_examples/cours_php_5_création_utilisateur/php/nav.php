@@ -8,5 +8,5 @@
     <!-- Navigation vers la page Forum -->
     <a href="forum.php">Forum</a>
     <!-- Navigation vers la page Contact -->
-    <a href="register.php">Register</a>
+    <a href="register.php">Inscription</a>
 </nav>
