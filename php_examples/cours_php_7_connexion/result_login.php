@@ -42,11 +42,34 @@
             header('Location: login.php');
         }
 
-        /* TODO : Mettre en place la récupération d'un utilisateur à partir de son email */
+        /* Ici, nous préparons la requête afin de récupérer notre utilisateur en BDD */
+        /* Cette requête a pour objectif de récupérer l'utilisateur si son email existe */
+        /* https://www.php.net/manual/fr/pdo.prepare.php */
+        $request = $pdo->prepare("SELECT * FROM utilisateur WHERE email = :email");
 
-        /* TODO : Mettre en place la vérification de la connexion d'un utilisateur et écrire dans la variable $_SESSION */
+        /* Ici, on lie les paramètres à notre requête "prepare" */
+        $request->bindParam(':email', $email);
 
-        /* TODO : En cas d'échec, afficher un message d'erreur  */
+        /* On execute la requête */
+        $request->execute();
+
+        /* Dans $result, on récupère l'ensemble des données renvoyées */
+        /* Dans notre cas, l'email étant unique, on récupère l'utilisateur où l'email corresponds */
+        /* https://www.php.net/manual/fr/pdostatement.fetchall.php */
+        $result = $request->fetchAll();
+        
+
+        /* On vérifie que l'utilisateur a bien été trouvé et que le mot de passe est valide */
+        if (count($result) > 0 && password_verify($mot_de_passe, $result[0]["mot_de_passe"])) {
+            /* Je stock dans la variable session l'email comme preuve de connexion et comme information récupérable */
+            $_SESSION["email"] = $result[0]["email"];
+
+            /* Je redirige ensuite l'utilisateur */
+            header("Location: users.php");
+        } else {
+            /* Si l'utilisateur n'existe pas, ou que son mot de passe n'est pas valide j'affiche un message d'erreur */
+            echo 'Email ou mot de passe invalid';
+        }
 
         ?>
 
