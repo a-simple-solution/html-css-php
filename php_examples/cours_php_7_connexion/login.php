@@ -5,7 +5,7 @@
     <!-- Cela définit l'encodage des caractères de notre page -->
     <meta charset="UTF-8">
     <!-- Il s'agit du nom de l'onglet -->
-    <title>Mon Blog - Inscription</title>
+    <title>Mon Blog - Connexion</title>
     <!-- Ceci nous permet de faire le lien avec notre fichier css -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Ceci nous permet d'ajouter un favicon -->
@@ -23,7 +23,7 @@
     <?php require_once ('php/nav.php') ?>
 
     <main>
-        <h1>Création d'un utilisateur</h1>
+        <h1>Connexion d'un utilisateur</h1>
         <!-- Ici je mets en place le formulaire -->
         <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element/form -->
         <form action="result_login.php" method="post">
