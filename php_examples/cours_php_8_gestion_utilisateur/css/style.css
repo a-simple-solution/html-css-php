@@ -101,6 +101,14 @@ form {
     padding: 5px;
 }
 
+/* Cette partie concerne le css qui cible des Class que nous avons mis dans le code */
+
+.form_input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
 /* Cette partie concerne le css qui cible des ID que nous avons mis dans le code */
 
 #logo {
@@ -108,3 +116,12 @@ form {
     width: 48px;
     margin-left: 20px;
 }
+
+#welcome {
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    color: orange;
+
+}
+

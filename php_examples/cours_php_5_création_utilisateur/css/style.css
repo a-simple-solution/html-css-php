@@ -33,21 +33,22 @@ nav {
 
 /* Le contenu principal de mes pages, (sauf le footer et le header), se situe dans les balise <main> */
 main {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     color: #025939;
     font-weight: bold;
+    justify-content: center;
+    align-items: center;
     /* IMPORTANT : pour éviter toute déformation et afin que ma partie central prenne toute la place disponible j'utilise la propriété flex-grow */
     /* https://developer.mozilla.org/fr/docs/Web/CSS/flex-grow */
     flex-grow: 1;
 }
 
 a {
-    /* Ces trois propriétés permettent de ne pas avoir de style sur mes balises <a> */
     text-decoration: inherit;
     font-style: normal;
-    color: white;
-    /* ----- */
-
+    color: orange;
     font-weight: bold;
     font-size: larger;
 
@@ -57,12 +58,7 @@ a {
 /* Il existe d'autre selectors de ce type, ci-dessous un lien */
 /* https://developer.mozilla.org/fr/docs/Web/CSS/:hover */
 a:hover {
-    color: lightgreen;
-}
-
-p {
-    color: black;
-    font-weight: bold;
+    color: orangered;
 }
 
 footer {
@@ -81,10 +77,28 @@ address {
     justify-content: space-evenly;
 }
 
-/* Cette partie concerne le css qui cible des Class que nous avons mis dans le code */
+input {
+    border: solid 1px black;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 3px;
+}
 
-.current_page {
-    color: lightgreen;
+button {
+    background-color: #025939;
+    color: white;
+    font-weight: bold;
+    border: 0;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding: 5px;
 }
 
 /* Cette partie concerne le css qui cible des ID que nous avons mis dans le code */
@@ -94,4 +108,3 @@ address {
     width: 48px;
     margin-left: 20px;
 }
-

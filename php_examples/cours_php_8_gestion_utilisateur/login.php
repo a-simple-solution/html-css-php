@@ -1,4 +1,3 @@
-<?php require_once ("php/database.php") ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -6,43 +5,48 @@
     <!-- Cela définit l'encodage des caractères de notre page -->
     <meta charset="UTF-8">
     <!-- Il s'agit du nom de l'onglet -->
-    <title>Mon Blog - Contact</title>
+    <title>Mon Blog - Inscription</title>
     <!-- Ceci nous permet de faire le lien avec notre fichier css -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Ceci nous permet d'ajouter un favicon -->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
 </head>
 
 <body>
+
     <!-- J'utilise le PHP afin de factoriser mon code. Ici, j'importe le header sur mes pages afin que le code du header n'existe qu'à un seul endroit -->
     <!-- Documentation : https://www.php.net/manual/en/function.require-once.php -->
-    <?php require_once ('php/header.php') ?>
+    <?php require_once ('composants/header.php') ?>
 
     <!-- J'utilise le PHP afin de factoriser mon code. Ici, j'importe la navigation sur mes pages afin que le code de la nav n'existe qu'à un seul endroit -->
     <!-- Documentation : https://www.php.net/manual/en/function.require-once.php -->
-    <?php require_once ('php/nav.php') ?>
+    <?php require_once ('composants/nav.php') ?>
 
     <main>
-        <div>
-            <?php
+        <h1>Création d'un utilisateur</h1>
 
-            /* On met en place une requête SQL pour récupérer les utilisateur*/
-            $get_request = 'SELECT * FROM utilisateur';
+        <!-- Ici je mets en place le formulaire -->
+        <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element/form -->
+        <form action="result_login.php" method="post">
+            <div class="form_input">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <br>
 
-            /* A partir de l'instance PDO on utilise "query" afin d'exécuter la requête "get_request" */
-            $result = $pdo->query($get_request);
+            <div class="form_input">
+                <label for="mot_de_passe">Mot de passe</label>
+                <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+            </div>
+            <br>
 
-            /* On parcours ensuite le tableau de résultat afin d'afficher tous les utilisateurs */
-            foreach ($result as $user) {
-                /* Pour afficher les utilisateurs, on utilise une balise <p> avec une class "user" */
-                echo "<p> Nom : " . $user['nom'] . " - Prénom : " . $user['prenom'] . " - Email : " . $user['email'] . " - Age : " . $user["age"] . "</p>";
-            }
-
-            ?>
-        </div>
+            <button type="submit">Valider</button>
+        </form>
     </main>
 
     <!-- J'utilise le PHP afin de factoriser mon code, ici j'importe le footer sur mes pages afin que le code du footer n'existe qu'à un seul endroit -->
     <!-- Documentation : https://www.php.net/manual/en/function.require-once.php -->
-    <?php require_once ('php/footer.php') ?>
+    <?php require_once ('composants/footer.php') ?>
 
 </body>
 

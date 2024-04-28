@@ -33,21 +33,22 @@ nav {
 
 /* Le contenu principal de mes pages, (sauf le footer et le header), se situe dans les balise <main> */
 main {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     color: #025939;
     font-weight: bold;
+    justify-content: center;
+    align-items: center;
     /* IMPORTANT : pour éviter toute déformation et afin que ma partie central prenne toute la place disponible j'utilise la propriété flex-grow */
     /* https://developer.mozilla.org/fr/docs/Web/CSS/flex-grow */
     flex-grow: 1;
 }
 
 a {
-    /* Ces trois propriétés permettent de ne pas avoir de style sur mes balises <a> */
     text-decoration: inherit;
     font-style: normal;
-    color: white;
-    /* ----- */
-
+    color: orange;
     font-weight: bold;
     font-size: larger;
 
@@ -57,13 +58,7 @@ a {
 /* Il existe d'autre selectors de ce type, ci-dessous un lien */
 /* https://developer.mozilla.org/fr/docs/Web/CSS/:hover */
 a:hover {
-    color: lightgreen;
-}
-
-p {
-    color: black;
-    font-weight: bold;
-    margin: 0;
+    color: orangered;
 }
 
 footer {
@@ -80,49 +75,6 @@ address {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-}
-
-/* Cette partie concerne le css qui cible des Class que nous avons mis dans le code */
-
-.current_page {
-    color: lightgreen;
-}
-
-/* Cette partie concerne le css qui cible des ID que nous avons mis dans le code */
-
-#logo {
-    height: 48px;
-    width: 48px;
-    margin-left: 20px;
-}
-
-.user {
-    background-color: #025939;
-    color: white;
-    padding: 10px;
-    border-top: solid 2px;
-    border-color: lightgreen;
-}
-
-main {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-form {
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-}
-
-.form_input {
-    display: flex;
-    margin-bottom: 10px;
-    flex-direction: column;
 }
 
 input {
@@ -142,19 +94,25 @@ button {
     padding: 10px;
 }
 
-#user_container {
-    width: 100%;
+form {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding: 5px;
 }
 
-#welcome {
-    width: 100%;
-    font-size: 30px;
-    margin-top: 10px;
+/* Cette partie concerne le css qui cible des Class que nous avons mis dans le code */
+
+.form_input {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: center;
-    color: white;
-    background-color: #025939;
 }
 
+/* Cette partie concerne le css qui cible des ID que nous avons mis dans le code */
+
+#logo {
+    height: 48px;
+    width: 48px;
+    margin-left: 20px;
+}

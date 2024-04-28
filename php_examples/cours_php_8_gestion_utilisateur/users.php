@@ -15,40 +15,23 @@
 <body>
     <!--  Ici j'importe le fichier database.php afin que ma base de données soit accessible au sein de ce fichier -->
     <!-- Documentation : https://www.php.net/manual/en/function.require-once.php -->
-    <?php require_once ("php/database.php") ?>
+    <?php require_once ("utils/database.php") ?>
 
     <!-- J'utilise le PHP afin de factoriser mon code. Ici, j'importe le header sur mes pages afin que le code du header n'existe qu'à un seul endroit -->
     <!-- Documentation : https://www.php.net/manual/en/function.require-once.php -->
-    <?php require_once ('php/header.php') ?>
+    <?php require_once ('composants/header.php') ?>
 
     <!-- J'utilise le PHP afin de factoriser mon code. Ici, j'importe la navigation sur mes pages afin que le code de la nav n'existe qu'à un seul endroit -->
     <!-- Documentation : https://www.php.net/manual/en/function.require-once.php -->
-    <?php require_once ('php/nav.php') ?>
+    <?php require_once ('composants/nav.php') ?>
 
     <main>
         <div>
             <?php
 
-            /* En vérifiant la variable $_SESSION cela me permet de valider que l'utilisateur est connecté */
-            if (isset($_SESSION["email"]) && !empty($_SESSION["email"])) {
-                /* Si l'utilisateur est bien connecté, j'affiche un message de bienvenue */
-                echo "<p> Bienvenue, " . $_SESSION["email"] . "! </p>";
-            } else {
-                /* Si l'utilisateur n'est pas connecté, je le redirige vers la page de login */
-                header("Location: login.php");
-            }
+            // TODO : Mettre en place la vérification de la connexion
 
-            /* On met en place une requête SQL pour récupérer les utilisateur*/
-            $get_request = 'SELECT * FROM utilisateur';
-
-            /* A partir de l'instance PDO on utilise "query" afin d'exécuter la requête "get_request" */
-            $result = $pdo->query($get_request);
-
-            /* On parcours ensuite le tableau de résultat afin d'afficher tous les utilisateurs */
-            foreach ($result as $user) {
-                /* Pour afficher les utilisateurs, on utilise une balise <p> avec une class "user" */
-                echo "<p> Nom : " . $user['nom'] . " - Prénom : " . $user['prenom'] . " - Email : " . $user['email'] . " - Age : ", $user["age"] . "</p>";
-            }
+            // TODO : Afficher les utilisateurs sous forme de balise <a>. Mettre en place l'ID dans "href".
 
             ?>
         </div>
@@ -56,7 +39,7 @@
 
     <!-- J'utilise le PHP afin de factoriser mon code, ici j'importe le footer sur mes pages afin que le code du footer n'existe qu'à un seul endroit -->
     <!-- Documentation : https://www.php.net/manual/en/function.require-once.php -->
-    <?php require_once ('php/footer.php') ?>
+    <?php require_once ('composants/footer.php') ?>
 
 </body>
 
