@@ -46,7 +46,7 @@
 
             /* On parcours ensuite le tableau de résultat afin d'afficher tous les utilisateurs */
             foreach ($result as $user) {
-                /* Pour afficher les utilisateurs, on utilise une balise <p> avec une class "user" */
+                /* Pour afficher les utilisateurs, on utilise une balise <p> */
                 echo "<p> Nom : " . $user['nom'] . " - Prénom : " . $user['prenom'] . " - Email : " . $user['email'] . " - Age : ", $user["age"] . "</p>";
             }
 
