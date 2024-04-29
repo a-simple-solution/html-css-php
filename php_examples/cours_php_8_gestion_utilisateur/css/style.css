@@ -109,6 +109,8 @@ form {
     margin-bottom: 10px;
 }
 
+
+
 /* Cette partie concerne le css qui cible des ID que nous avons mis dans le code */
 
 #logo {
@@ -125,3 +127,7 @@ form {
 
 }
 
+#user_list {
+    display: flex;
+    flex-direction: column;
+}

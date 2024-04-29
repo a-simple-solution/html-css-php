@@ -28,11 +28,37 @@
     <main>
         <?php
 
-        // TODO : Mettre en place la vérification de la connexion
 
-        // TODO : Mettre en place la récupération de l'utilisateur via son ID
+        $id = $_GET['id'];
 
-        // TODO : Afficher l'utilisateur s'il existe
+        /* En vérifiant la variable $_SESSION cela me permet de valider que l'utilisateur est connecté */
+        if (!isset($_SESSION["email"]) && empty($_SESSION["email"])) {
+            header("Location: login.php");
+        }
+
+        /* Ici, nous préparons la requête afin de récupérer notre utilisateur en BDD */
+        /* Cette requête a pour objectif de récupérer l'utilisateur si son email existe */
+        /* https://www.php.net/manual/fr/pdo.prepare.php */
+        $request = $pdo->prepare("SELECT * FROM utilisateur WHERE id = :id");
+
+        /* Ici, on lie les paramètres à notre requête "prepare" */
+        $request->bindParam(':id', $id);
+
+        /* On execute la requête */
+        $request->execute();
+
+        /* Dans $result, on récupère l'ensemble des données renvoyées */
+        /* Dans notre cas, l'email étant unique, on récupère l'utilisateur où l'email corresponds */
+        /* https://www.php.net/manual/fr/pdostatement.fetchall.php */
+        $result = $request->fetchAll();
+
+        if(count($result) > 0) {
+        /* Pour afficher les utilisateurs, on utilise une balise <p> */
+            echo "<p> Nom : " . $result[0]['nom'] . " - Prénom : " . $result[0]['prenom'] . " - Email : " . $result[0]['email'] . " - Age : ", $result[0]["age"] . "</p>";
+        } else {
+            echo "Utilisateur introuvable";
+        }
+
 
         ?>
     </main>

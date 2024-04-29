@@ -29,9 +29,30 @@
         <div>
             <?php
 
-            // TODO : Mettre en place la vérification de la connexion
+            /* En vérifiant la variable $_SESSION cela me permet de valider que l'utilisateur est connecté */
+            if (isset($_SESSION["email"]) && !empty($_SESSION["email"])) {
+                /* Si l'utilisateur est bien connecté, j'affiche un message de bienvenue */
+                echo "<p> Bienvenue, " . $_SESSION["email"] . "! </p>";
+            } else {
+                /* Si l'utilisateur n'est pas connecté, je le redirige vers la page de login */
+                header("Location: login.php");
+            }
 
-            // TODO : Afficher les utilisateurs sous forme de balise <a>. Mettre en place l'ID dans "href".
+            /* On met en place une requête SQL pour récupérer les utilisateur*/
+            $get_request = 'SELECT * FROM utilisateur';
+
+            /* A partir de l'instance PDO on utilise "query" afin d'exécuter la requête "get_request" */
+            $result = $pdo->query($get_request);
+
+            echo "<div id=\"user_list\">";
+            /* On parcours ensuite le tableau de résultat afin d'afficher tous les utilisateurs */
+            foreach ($result as $user) {
+                
+                /* Pour afficher les utilisateurs, on utilise une balise <p> */
+                echo "<a href=\"user.php?id=" . $user["id"] ."\"> Nom : " . $user['nom'] . " - Prénom : " . $user['prenom'] . " - Email : " . $user['email'] . " - Age : ", $user["age"] . "</a>";
+            }
+
+            echo "</div>";
 
             ?>
         </div>
