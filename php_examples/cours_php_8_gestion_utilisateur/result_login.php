@@ -36,7 +36,7 @@
 
         /* Avec la fonction "isset", je vérifie que toutes les données sont présentes */
         /* https://www.php.net/manual/fr/function.isset.php */
-        if (!isset($email) || !isset($mot_de_passe)) {
+        if (empty($email) || empty($mot_de_passe)) {
             /* S'il manque des données je redirige l'utilisateur */
             /* https://www.php.net/manual/fr/function.header.php */
             header('Location: login.php');

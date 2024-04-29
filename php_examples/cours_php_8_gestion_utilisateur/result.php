@@ -39,7 +39,7 @@
 
         /* Avec la fonction "isset", je vérifie que toutes les données sont présentes */
         /* https://www.php.net/manual/fr/function.isset.php */
-        if (!isset($nom) || !isset($prenom) || !isset($age) || !isset($email) || !isset($mot_de_passe)) {
+        if (empty($nom) || empty($prenom) || empty($age) || empty($email) || empty($mot_de_passe)) {
             /* S'il manque des données je redirige l'utilisateur */
             /* https://www.php.net/manual/fr/function.header.php */
             header('Location: register.php');
