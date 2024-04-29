@@ -30,8 +30,8 @@
         $age = $_POST['age'];
         $email = $_POST['email'];
 
-        /* Avec la fonction "isset", je vérifie que toutes les données sont présentes */
-        /* https://www.php.net/manual/fr/function.isset.php */
+        /* Avec la fonction "empty", je vérifie que toutes les données sont présentes */
+        /* https://www.php.net/manual/fr/function.empty.php */
         if (empty($nom) || empty($prenom) || empty($age) || empty($email)) {
             /* S'il manque des données je redirige l'utilisateur */
             /* https://www.php.net/manual/fr/function.header.php */
