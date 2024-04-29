@@ -22,23 +22,9 @@
 
     <main>
 
-        <!-- Ici je mets en place le formulaire -->
-        <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element/form -->
-        <form action="result.php" method="post">
-            <label for="nom">Nom</label>
-            <input type="text" id="nom" name="nom" required>
-            <br>
-            <label for="prenom">Prénom</label>
-            <input type="text" id="prenom" name="prenom" required>
-            <br>
-            <label for="age">Age</label>
-            <input type="number" id="age" name="age" required>
-            <br>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <br>
-            <button type="submit">Valider</button>
-        </form>
+       
+        <!-- TODO : Implémenter le formulaire -->
+
 
     </main>
 
