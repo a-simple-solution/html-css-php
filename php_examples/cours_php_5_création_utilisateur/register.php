@@ -24,27 +24,9 @@
         <h1>Création d'un utilisateur</h1>
         <!-- Ici je mets en place le formulaire -->
         <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element/form -->
-        <form action="result.php" method="post">
-            <label for="nom">Nom</label>
-            <input type="text" id="nom" name="nom" required>
-            <br>
-            <label for="prenom">Prénom</label>
-            <input type="text" id="prenom" name="prenom" required>
-            <br>
-            <label for="age">Age</label>
-            <input type="number" id="age" name="age" required>
-            <br>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <br>
-            <label for="mot_de_passe">Mot de passe</label>
-            <input type="password" id="mot_de_passe" name="mot_de_passe" required>
-            <br>
-            <label for="confirmation_de_mot_de_passe">Confirmation de mot de passe</label>
-            <input type="password" id="confirmation_de_mot_de_passe" name="confirmation_de_mot_de_passe" required>
-            <br>
-            <button type="submit">Valider</button>
-        </form>
+        
+        <!-- TODO : Ecrire le formulaire d'inscription utilisateur -->
+        
     </main>
 
     <!-- J'utilise le PHP afin de factoriser mon code, ici j'importe le footer sur mes pages afin que le code du footer n'existe qu'à un seul endroit -->
