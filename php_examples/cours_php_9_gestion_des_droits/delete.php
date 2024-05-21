@@ -24,14 +24,41 @@
     <main>
         <?php
 
+        /* En vérifiant la variable $_SESSION cela me permet de valider que l'utilisateur est connecté */
+        if (!isset($_SESSION["email"]) && empty($_SESSION["email"])) {
+            header("Location: login.php");
+        }
+
         /* Ici j'importe le fichier database.php afin que ma base de données soit accessible au sein de ce fichier */
         /* Documentation : https://www.php.net/manual/en/function.require-once.php */
-        require_once ("utils/database.php");
 
-       // TODO : Implémenté la suppression d'un utilisateur
+        $id = $_GET['id'];
 
-        /* On ferme la connexion à la base de données */
-        $pdo = null;
+        if ($_SESSION["role"] != "admin") {
+            echo "Vous n'êtes pas autorisé à supprimer un utilisateur.";
+        } else if ($_SESSION["id"] == $id) {
+            echo "Vous ne pouvez pas supprimer votre propre utilisateur.";
+        } else {
+            require_once ("utils/database.php");
+
+            $sql = "DELETE FROM utilisateur WHERE id = :id";
+
+            $request = $pdo->prepare($sql);
+
+            $request->bindParam(':id', $id);
+
+            $request->execute();
+
+            if ($request->rowCount() > 0) {
+                echo "Utilisateur supprimé avec succès!";
+            } else {
+                echo "Erreur lors de la suppression de l'utilisateur.";
+            }
+            /* On ferme la connexion à la base de données */
+            $pdo = null;
+        }
+
+
 
         ?>
 
