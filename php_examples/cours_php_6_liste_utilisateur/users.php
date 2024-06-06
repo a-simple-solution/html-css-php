@@ -24,7 +24,17 @@
         <div>
             <?php
 
-            // TODO : Mettez en place la récupération de la liste des utilisateurs
+            /* On met en place une requête SQL pour récupérer les utilisateur*/
+            $get_request = 'SELECT * FROM utilisateur';
+
+            /* A partir de l'instance PDO on utilise "query" afin d'exécuter la requête "get_request" */
+            $result = $pdo->query($get_request);
+
+            /* On parcours ensuite le tableau de résultat afin d'afficher tous les utilisateurs */
+            foreach ($result as $user) {
+                /* Pour afficher les utilisateurs, on utilise une balise <p> */
+                echo "<p> Nom : " . $user['nom'] . " - Prénom : " . $user['prenom'] . " - Email : " . $user['email'] . " - Age : " . $user["age"] . "</p>";
+            }
 
             ?>
         </div>
