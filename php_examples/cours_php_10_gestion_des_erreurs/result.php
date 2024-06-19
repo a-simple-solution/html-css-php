@@ -26,74 +26,83 @@
 
         <?php
 
-        /* Ici j'importe le fichier database.php afin que ma base de données soit accessible au sein de ce fichier */
-        /* Documentation : https://www.php.net/manual/en/function.require-once.php */
-        require_once ("utils/database.php");
+        /* Ici nous mettons en place le try, le traitement pouvant renvoyer des exceptions doit être positionné dedans. */
+        try {
 
-        /* A partir des variables $_POST, je récupère l'ensemble des informations du formulaire */
-        $nom = $_POST['nom'];
-        $prenom = $_POST['prenom'];
-        $age = $_POST['age'];
-        $email = $_POST['email'];
-        $role = $_POST['role'];
-        $mot_de_passe = $_POST['mot_de_passe'];
-        $confirmation_de_mot_de_passe = $_POST['confirmation_de_mot_de_passe'];
-
-        /* Avec la fonction "isset", je vérifie que toutes les données sont présentes */
-        /* https://www.php.net/manual/fr/function.isset.php */
-        if (empty($nom) || empty($prenom) || empty($age) || empty($email) || empty($mot_de_passe)) {
-            /* S'il manque des données je redirige l'utilisateur */
-            /* https://www.php.net/manual/fr/function.header.php */
-            header('Location: register.php');
-        }
-
-        if ($confirmation_de_mot_de_passe == $mot_de_passe) {
-
-            /* Ici je hash le mot de passe, afin qu'il ne soit pas en clair dans la base de données */
-            /* https://www.php.net/manual/en/function.password-hash.php */
-            $mot_de_passe_hache = password_hash($mot_de_passe, PASSWORD_DEFAULT);
+            /* Ici j'importe le fichier database.php afin que ma base de données soit accessible au sein de ce fichier */
+            /* Documentation : https://www.php.net/manual/en/function.require-once.php */
+            require_once ("utils/database.php");
 
 
-        /*
-        TODO
-        */
-        // TODO : mettez en place les try catch afin de gérer l'erreur PDO proprement
-        /*
-        TODO
-        */
 
-            /* Ici, nous préparons la requête afin d'écrire notre utilisateur en BDD */
-            /* https://www.php.net/manual/fr/pdo.prepare.php */
-            $request = $pdo->prepare('INSERT INTO utilisateur (nom, prenom, age, email, mot_de_passe, role) VALUES (:nom, :prenom, :age, :email, :mot_de_passe, :role)');
+            /* A partir des variables $_POST, je récupère l'ensemble des informations du formulaire */
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $age = $_POST['age'];
+            $email = $_POST['email'];
+            $role = $_POST['role'];
+            $mot_de_passe = $_POST['mot_de_passe'];
+            $confirmation_de_mot_de_passe = $_POST['confirmation_de_mot_de_passe'];
 
-
-            /* Ici, on lie les paramètres à notre requête prepare */
-            $request->bindParam(':nom', $nom);
-            $request->bindParam(':prenom', $prenom);
-            $request->bindParam(':age', $age);
-            $request->bindParam(':email', $email);
-            $request->bindParam(':role', $role);
-            $request->bindParam(':mot_de_passe', $mot_de_passe_hache);
-
-
-            /* On execute la requête */
-            $request->execute();
-
-            /* On vérifie que la requête a bien été effectuée */
-            if ($request->rowCount() === 1) {
-                /* Si l'utilisateur a bien été crée, j'affiche un message de succès */
-                echo "L'utilisateur a été ajouté avec succès.";
-            } else {
-                /* Sinon j'affiche un message d'erreur */
-                echo "Une erreur est survenue lors de l'ajout de l'utilisateur.";
+            /* Avec la fonction "isset", je vérifie que toutes les données sont présentes */
+            /* https://www.php.net/manual/fr/function.isset.php */
+            if (empty($nom) || empty($prenom) || empty($age) || empty($email) || empty($mot_de_passe)) {
+                /* S'il manque des données je redirige l'utilisateur */
+                /* https://www.php.net/manual/fr/function.header.php */
+                header('Location: register.php');
             }
-        } else {
-            /* J'affiche un message d'erreur si les mots de passe ne correspondent pas */
-            echo 'Les mots de passe ne correspondent pas';
-        }
 
-        /* On ferme la connexion à la base de données */
-        $pdo = null;
+
+
+            if ($confirmation_de_mot_de_passe == $mot_de_passe) {
+
+                /* Ici je hash le mot de passe, afin qu'il ne soit pas en clair dans la base de données */
+                /* https://www.php.net/manual/en/function.password-hash.php */
+                $mot_de_passe_hache = password_hash($mot_de_passe, PASSWORD_DEFAULT);
+
+                /* Ici je vérifie que ma variable pdo n'est pas null. Si elle l'est, je déclenche une exception */
+                if (!isset($pdo) || $pdo == null) {
+                    throw new Exception("La connexion à la base de données à échoué, vous ne pouvez pas vous inscrire.");
+                }
+
+                /* Ici, nous préparons la requête afin d'écrire notre utilisateur en BDD */
+                /* https://www.php.net/manual/fr/pdo.prepare.php */
+                $request = $pdo->prepare('INSERT INTO utilisateur (nom, prenom, age, email, mot_de_passe, role) VALUES (:nom, :prenom, :age, :email, :mot_de_passe, :role)');
+
+
+                /* Ici, on lie les paramètres à notre requête prepare */
+                $request->bindParam(':nom', $nom);
+                $request->bindParam(':prenom', $prenom);
+                $request->bindParam(':age', $age);
+                $request->bindParam(':email', $email);
+                $request->bindParam(':role', $role);
+                $request->bindParam(':mot_de_passe', $mot_de_passe_hache);
+
+
+                /* On execute la requête */
+                $request->execute();
+
+                /* On vérifie que la requête a bien été effectuée */
+                if ($request->rowCount() === 1) {
+                    /* Si l'utilisateur a bien été crée, j'affiche un message de succès */
+                    echo "L'utilisateur a été ajouté avec succès.";
+                } else {
+                    /* Sinon j'affiche un message d'erreur */
+                    echo "Une erreur est survenue lors de l'ajout de l'utilisateur.";
+                }
+            } else {
+                /* J'affiche un message d'erreur si les mots de passe ne correspondent pas */
+                echo 'Les mots de passe ne correspondent pas';
+            }
+
+            /* On ferme la connexion à la base de données */
+            $pdo = null;
+
+            /* Ici nous avons un catch, qui va intercépter les exceptions envoyées */
+        } catch (Exception $error) {
+            /* Ici j'affiche le message de l'exception */
+            echo $error->getMessage();
+        }
 
         ?>
 

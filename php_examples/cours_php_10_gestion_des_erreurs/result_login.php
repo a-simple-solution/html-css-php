@@ -25,64 +25,75 @@
 
         <?php
 
+
         /* Ici j'importe le fichier database.php afin que ma base de données soit accessible au sein de ce fichier */
         /* Documentation : https://www.php.net/manual/en/function.require-once.php */
         require_once ("utils/database.php");
 
-        /* A partir des variables $_POST, je récupère l'ensemble des informations du formulaire */
-        $email = $_POST['email'];
-        $mot_de_passe = $_POST['mot_de_passe'];
+        /* Ici nous mettons en place le try, le traitement pouvant renvoyer des exceptions doit être positionné dedans. */
+        try {
+
+            /* A partir des variables $_POST, je récupère l'ensemble des informations du formulaire */
+            $email = $_POST['email'];
+            $mot_de_passe = $_POST['mot_de_passe'];
 
 
-        /* Avec la fonction "isset", je vérifie que toutes les données sont présentes */
-        /* https://www.php.net/manual/fr/function.isset.php */
-        if (empty($email) || empty($mot_de_passe)) {
-            /* S'il manque des données je redirige l'utilisateur */
-            /* https://www.php.net/manual/fr/function.header.php */
-            header('Location: login.php');
-        }
+            /* Avec la fonction "isset", je vérifie que toutes les données sont présentes */
+            /* https://www.php.net/manual/fr/function.isset.php */
+            if (empty($email) || empty($mot_de_passe)) {
+                /* S'il manque des données je redirige l'utilisateur */
+                /* https://www.php.net/manual/fr/function.header.php */
+                header('Location: login.php');
+            }
 
-        /*
-        TODO
-        */
-        // TODO : mettez en place les try catch afin de gérer l'erreur PDO proprement
-        /*
-        TODO
-        */
+            /* Ici je vérifie que ma variable pdo n'est pas null. Si elle l'est, je déclenche une exception */
+            if (!isset($pdo) || $pdo == null) {
+                throw new Exception("La connexion à la base de données à échoué, vous ne pouvez pas vous connecter.");
+            }
+
+
+            /* Ici, nous préparons la requête afin de récupérer notre utilisateur en BDD */
+            /* Cette requête a pour objectif de récupérer l'utilisateur si son email existe */
+            /* https://www.php.net/manual/fr/pdo.prepare.php */
+            $request = $pdo->prepare("SELECT * FROM utilisateur WHERE email = :email");
+
+            /* Ici, on lie les paramètres à notre requête "prepare" */
+            $request->bindParam(':email', $email);
+
+            /* On execute la requête */
+            $request->execute();
+
+            $request = null;
+
+            /* Dans $result, on récupère l'ensemble des données renvoyées */
+            /* Dans notre cas, l'email étant unique, on récupère l'utilisateur où l'email corresponds */
+            /* https://www.php.net/manual/fr/pdostatement.fetchall.php */
+            //$result = $request->fetchAll();
         
-        /* Ici, nous préparons la requête afin de récupérer notre utilisateur en BDD */
-        /* Cette requête a pour objectif de récupérer l'utilisateur si son email existe */
-        /* https://www.php.net/manual/fr/pdo.prepare.php */
-        $request = $pdo->prepare("SELECT * FROM utilisateur WHERE email = :email");
 
-        /* Ici, on lie les paramètres à notre requête "prepare" */
-        $request->bindParam(':email', $email);
+            /* On vérifie que l'utilisateur a bien été trouvé et que le mot de passe est valide */
+            if (count($result) > 0 && password_verify($mot_de_passe, $result[0]["mot_de_passe"])) {
+                /* Je stock dans la variable session l'email, l'id et le role comme preuve de connexion et comme information récupérable */
+                $_SESSION["email"] = $result[0]["email"];
+                $_SESSION["id"] = $result[0]["id"];
+                $_SESSION["role"] = $result[0]["role"];
 
-        /* On execute la requête */
-        $request->execute();
+                /* Je redirige ensuite l'utilisateur */
+                header("Location: users.php");
+            } else {
+                /* Si l'utilisateur n'existe pas, ou que son mot de passe n'est pas valide j'affiche un message d'erreur */
+                echo 'Email ou mot de passe invalid';
+            }
 
-        /* Dans $result, on récupère l'ensemble des données renvoyées */
-        /* Dans notre cas, l'email étant unique, on récupère l'utilisateur où l'email corresponds */
-        /* https://www.php.net/manual/fr/pdostatement.fetchall.php */
-        $result = $request->fetchAll();
+            /* On ferme la connexion à la base de données */
+            $pdo = null;
 
-
-        /* On vérifie que l'utilisateur a bien été trouvé et que le mot de passe est valide */
-        if (count($result) > 0 && password_verify($mot_de_passe, $result[0]["mot_de_passe"])) {
-            /* Je stock dans la variable session l'email, l'id et le role comme preuve de connexion et comme information récupérable */
-            $_SESSION["email"] = $result[0]["email"];
-            $_SESSION["id"] = $result[0]["id"];
-            $_SESSION["role"] = $result[0]["role"];
-
-            /* Je redirige ensuite l'utilisateur */
-            header("Location: users.php");
-        } else {
-            /* Si l'utilisateur n'existe pas, ou que son mot de passe n'est pas valide j'affiche un message d'erreur */
-            echo 'Email ou mot de passe invalid';
+            /* Ici nous avons un catch, qui va intercépter les exceptions envoyées */
+        } catch (Exception $error) {
+            /* Ici j'affiche le message de l'exception */
+            echo $error->getMessage();
         }
 
-        /* On ferme la connexion à la base de données */
-        $pdo = null;
 
         ?>
 

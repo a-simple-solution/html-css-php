@@ -14,7 +14,8 @@ try {
     /* Si tout se passe bien, je n'affiche rien */
 } catch (PDOException $e) {
     /* Si la connexion échoue j'affiche un message d'erreur */
-    echo "Échec de la connexion : " . $e->getMessage();
+    echo "Échec de la connexion à la base de données";
 }
+
 
 

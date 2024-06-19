@@ -41,14 +41,6 @@
         } else {
             require_once ("utils/database.php");
 
-        /*
-        TODO
-        */
-        // TODO : mettez en place les try catch afin de gérer l'erreur PDO proprement
-        /*
-        TODO
-        */
-
             $sql = "DELETE FROM utilisateur WHERE id = :id";
 
             $request = $pdo->prepare($sql);
