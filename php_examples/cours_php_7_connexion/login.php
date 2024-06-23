@@ -26,21 +26,8 @@
         <h1>Création d'un utilisateur</h1>
         <!-- Ici je mets en place le formulaire -->
         <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element/form -->
-        <form action="result_login.php" method="post">
-            <div class="form_input">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <br>
 
-            <div class="form_input">
-                <label for="mot_de_passe">Mot de passe</label>
-                <input type="password" id="mot_de_passe" name="mot_de_passe" required>
-            </div>
-            <br>
-
-            <button type="submit">Valider</button>
-        </form>
+        <!-- TODO : Implémentez un formulaire de connexion -->
     </main>
 
     <!-- J'utilise le PHP afin de factoriser mon code, ici j'importe le footer sur mes pages afin que le code du footer n'existe qu'à un seul endroit -->

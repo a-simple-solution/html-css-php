@@ -29,14 +29,7 @@
         <div>
             <?php
 
-            /* En vérifiant la variable $_SESSION cela me permet de valider que l'utilisateur est connecté */
-            if (isset($_SESSION["email"]) && !empty($_SESSION["email"])) {
-                /* Si l'utilisateur est bien connecté, j'affiche un message de bienvenue */
-                echo "<p> Bienvenue, " . $_SESSION["email"] . "! </p>";
-            } else {
-                /* Si l'utilisateur n'est pas connecté, je le redirige vers la page de login */
-                header("Location: login.php");
-            }
+            /* Mettez en place la vérification de la connexion */ 
 
             /* On met en place une requête SQL pour récupérer les utilisateur*/
             $get_request = 'SELECT * FROM utilisateur';
