@@ -29,8 +29,10 @@
         <?php
         /* On détruit la session courante */
         /* https://www.php.net/manual/fr/function.session-destroy.php */
-        
-        /* TODO : Mettre en place la déconnexion et redirigez l'utilisateur */
+        session_destroy();
+
+
+        header('Location: login.php');
         ?>
     </main>
 

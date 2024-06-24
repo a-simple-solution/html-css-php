@@ -34,7 +34,42 @@
         $mot_de_passe = $_POST['mot_de_passe'];
 
 
-        /* TODO : Implémentez la connexion d'un utilisateur */
+        /* Avec la fonction "empty", je vérifie que toutes les données sont présentes */
+        /* https://www.php.net/manual/fr/function.empty.php */
+        if (empty($email) || empty($mot_de_passe)) {
+            /* S'il manque des données je redirige l'utilisateur */
+            /* https://www.php.net/manual/fr/function.header.php */
+            header('Location: login.php');
+        }
+
+        /* Ici, nous préparons la requête afin de récupérer notre utilisateur en BDD */
+        /* Cette requête a pour objectif de récupérer l'utilisateur si son email existe */
+        /* https://www.php.net/manual/fr/pdo.prepare.php */
+        $request = $pdo->prepare("SELECT * FROM utilisateur WHERE email = :email");
+
+        /* Ici, on lie les paramètres à notre requête "prepare" */
+        $request->bindParam(':email', $email);
+
+        /* On execute la requête */
+        $request->execute();
+
+        /* Dans $result, on récupère l'ensemble des données renvoyées */
+        /* Dans notre cas, l'email étant unique, on récupère l'utilisateur où l'email corresponds */
+        /* https://www.php.net/manual/fr/pdostatement.fetchall.php */
+        $result = $request->fetchAll();
+        
+
+        /* On vérifie que l'utilisateur a bien été trouvé et que le mot de passe est valide */
+        if (count($result) > 0 && password_verify($mot_de_passe, $result[0]["mot_de_passe"])) {
+            /* Je stock dans la variable session l'email comme preuve de connexion et comme information récupérable */
+            $_SESSION["email"] = $result[0]["email"];
+
+            /* Je redirige ensuite l'utilisateur */
+            header("Location: users.php");
+        } else {
+            /* Si l'utilisateur n'existe pas, ou que son mot de passe n'est pas valide j'affiche un message d'erreur */
+            echo 'Email ou mot de passe invalide';
+        }
 
         ?>
 
