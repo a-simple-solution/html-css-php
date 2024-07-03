@@ -37,14 +37,6 @@
                 header("Location: login.php");
             }
 
-        /*
-        TODO
-        */
-        // TODO : mettez en place les try catch afin de gérer l'erreur PDO proprement
-        /*
-        TODO
-        */
-
             /* On met en place une requête SQL pour récupérer les utilisateur*/
             $get_request = 'SELECT * FROM utilisateur';
 

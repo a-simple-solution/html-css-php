@@ -36,14 +36,6 @@
             header("Location: login.php");
         }
 
-        /*
-        TODO
-        */
-        // TODO : mettez en place les try catch afin de gérer l'erreur PDO proprement
-        /*
-        TODO
-        */
-        
         /* Ici, nous préparons la requête afin de récupérer notre utilisateur en BDD */
         /* Cette requête a pour objectif de récupérer l'utilisateur si son email existe */
         /* https://www.php.net/manual/fr/pdo.prepare.php */

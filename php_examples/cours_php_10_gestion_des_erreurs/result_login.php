@@ -63,7 +63,7 @@
             /* On execute la requête */
             $request->execute();
 
-            $request = null;
+            $result = $request->fetchAll();
 
             /* Dans $result, on récupère l'ensemble des données renvoyées */
             /* Dans notre cas, l'email étant unique, on récupère l'utilisateur où l'email corresponds */
