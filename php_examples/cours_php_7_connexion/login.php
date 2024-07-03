@@ -24,7 +24,7 @@
 
     <main>
         <h1>Connexion d'un utilisateur</h1>
-        <!-- Ici je mets en place le formulaire -->
+        <!-- Ici, je mets en place le formulaire -->
         <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Element/form -->
         <form action="result_login.php" method="post">
             <div class="form_input">
@@ -43,7 +43,7 @@
         </form>
     </main>
 
-    <!-- J'utilise le PHP afin de factoriser mon code, ici j'importe le footer sur mes pages afin que le code du footer n'existe qu'à un seul endroit -->
+    <!-- J'utilise le PHP afin de factoriser mon code, ici, j'importe le footer sur mes pages afin que le code du footer n'existe qu'à un seul endroit -->
     <!-- Documentation : https://www.php.net/manual/en/function.require-once.php -->
     <?php require_once ('php/footer.php') ?>
 

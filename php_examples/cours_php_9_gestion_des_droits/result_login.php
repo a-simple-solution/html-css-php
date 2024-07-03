@@ -25,11 +25,11 @@
 
         <?php
 
-        /* Ici j'importe le fichier database.php afin que ma base de données soit accessible au sein de ce fichier */
+        /* Ici, j'importe le fichier database.php afin que ma base de données soit accessible au sein de ce fichier */
         /* Documentation : https://www.php.net/manual/en/function.require-once.php */
         require_once ("utils/database.php");
 
-        /* A partir des variables $_POST, je récupère l'ensemble des informations du formulaire */
+        /* À partir des variables $_POST, je récupère l'ensemble des informations du formulaire */
         $email = $_POST['email'];
         $mot_de_passe = $_POST['mot_de_passe'];
 
@@ -37,7 +37,7 @@
         /* Avec la fonction "isset", je vérifie que toutes les données sont présentes */
         /* https://www.php.net/manual/fr/function.isset.php */
         if (empty($email) || empty($mot_de_passe)) {
-            /* S'il manque des données je redirige l'utilisateur */
+            /* S'il manque des données, je redirige l'utilisateur */
             /* https://www.php.net/manual/fr/function.header.php */
             header('Location: login.php');
         }
@@ -71,7 +71,7 @@
             /* Je redirige ensuite l'utilisateur */
             header("Location: users.php");
         } else {
-            /* Si l'utilisateur n'existe pas, ou que son mot de passe n'est pas valide j'affiche un message d'erreur */
+            /* Si l'utilisateur n'existe pas, ou que son mot de passe n'est pas valide, j'affiche un message d'erreur */
             echo 'Email ou mot de passe invalid';
         }
 
@@ -82,7 +82,7 @@
 
     </main>
 
-    <!-- J'utilise le PHP afin de factoriser mon code, ici j'importe le footer sur mes pages afin que le code du footer n'existe qu'à un seul endroit -->
+    <!-- J'utilise le PHP afin de factoriser mon code, ici, j'importe le footer sur mes pages afin que le code du footer n'existe qu'à un seul endroit -->
     <!-- Documentation : https://www.php.net/manual/en/function.require-once.php -->
     <?php require_once ('composants/footer.php') ?>
 

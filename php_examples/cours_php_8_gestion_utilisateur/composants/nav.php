@@ -8,14 +8,14 @@
 
     <?php
 
-    /* Ici on utilise "session_start()" afin d'initialiser une session */
+    /* Ici, on utilise "session_start()" afin d'initialiser une session */
     /* Cette instruction est indispensable pour pouvoir lire ou écrire dans la variable $_SESSION */
     /* Comme la nav est présente sur toutes les pages, je n'ai pas besoin d'utiliser "session_start()" ailleurs */
     /* https://www.php.net/manual/fr/function.session-start.php */
     session_start();
 
 
-    /* Ici je vérifie l'état de l'utilisateur et affiche une navigation différente en fonction de son état */
+    /* Ici, je vérifie l'état de l'utilisateur et affiche une navigation différente en fonction de son état */
     if (isset($_SESSION["email"]) && !empty($_SESSION["email"])) {
         /* Navigation vers la page Utilisateurs, affichée uniquement si l'utilisateur est connecté */
         echo "<a href=\"users.php\">Utilisateurs</a>";

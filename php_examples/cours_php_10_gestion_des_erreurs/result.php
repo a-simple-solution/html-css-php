@@ -26,16 +26,15 @@
 
         <?php
 
-        /* Ici nous mettons en place le try, le traitement pouvant renvoyer des exceptions doit être positionné dedans. */
+        /* Ici, nous mettons en place le try, le traitement pouvant renvoyer des exceptions doit être positionné dedans. */
         try {
 
-            /* Ici j'importe le fichier database.php afin que ma base de données soit accessible au sein de ce fichier */
+            /* Ici, j'importe le fichier database.php afin que ma base de données soit accessible au sein de ce fichier */
             /* Documentation : https://www.php.net/manual/en/function.require-once.php */
             require_once ("utils/database.php");
 
 
-
-            /* A partir des variables $_POST, je récupère l'ensemble des informations du formulaire */
+            /* À partir des variables $_POST, je récupère l'ensemble des informations du formulaire */
             $nom = $_POST['nom'];
             $prenom = $_POST['prenom'];
             $age = $_POST['age'];
@@ -47,7 +46,7 @@
             /* Avec la fonction "isset", je vérifie que toutes les données sont présentes */
             /* https://www.php.net/manual/fr/function.isset.php */
             if (empty($nom) || empty($prenom) || empty($age) || empty($email) || empty($mot_de_passe)) {
-                /* S'il manque des données je redirige l'utilisateur */
+                /* S'il manque des données, je redirige l'utilisateur */
                 /* https://www.php.net/manual/fr/function.header.php */
                 header('Location: register.php');
             }
@@ -56,11 +55,11 @@
 
             if ($confirmation_de_mot_de_passe == $mot_de_passe) {
 
-                /* Ici je hash le mot de passe, afin qu'il ne soit pas en clair dans la base de données */
+                /* Ici, je hash le mot de passe, afin qu'il ne soit pas en clair dans la base de données */
                 /* https://www.php.net/manual/en/function.password-hash.php */
                 $mot_de_passe_hache = password_hash($mot_de_passe, PASSWORD_DEFAULT);
 
-                /* Ici je vérifie que ma variable pdo n'est pas null. Si elle l'est, je déclenche une exception */
+                /* Ici, je vérifie que ma variable pdo n'est pas null. Si elle l'est, je déclenche une exception */
                 if (!isset($pdo) || $pdo == null) {
                     throw new Exception("La connexion à la base de données à échoué, vous ne pouvez pas vous inscrire.");
                 }
@@ -98,9 +97,9 @@
             /* On ferme la connexion à la base de données */
             $pdo = null;
 
-            /* Ici nous avons un catch, qui va intercépter les exceptions envoyées */
+            /* Ici, nous avons un catch, qui va intercépter les exceptions envoyées */
         } catch (Exception $error) {
-            /* Ici j'affiche le message de l'exception */
+            /* Ici, j'affiche le message de l'exception */
             echo $error->getMessage();
         }
 
@@ -108,7 +107,7 @@
 
     </main>
 
-    <!-- J'utilise le PHP afin de factoriser mon code, ici j'importe le footer sur mes pages afin que le code du footer n'existe qu'à un seul endroit -->
+    <!-- J'utilise le PHP afin de factoriser mon code, ici, j'importe le footer sur mes pages afin que le code du footer n'existe qu'à un seul endroit -->
     <!-- Documentation : https://www.php.net/manual/en/function.require-once.php -->
     <?php require_once ('composants/footer.php') ?>
 
