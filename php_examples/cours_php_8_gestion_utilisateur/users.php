@@ -48,8 +48,7 @@
             /* On parcourt ensuite le tableau de résultat afin d'afficher tous les utilisateurs */
             foreach ($result as $user) {
                 
-                /* Pour afficher les utilisateurs, on utilise une balise <p> */
-                echo "<a href=\"user.php?id=" . $user["id"] ."\"> Nom : " . $user['nom'] . " - Prénom : " . $user['prenom'] . " - Email : " . $user['email'] . " - Age : ", $user["age"] . "</a>";
+               // TODO : mettez en place une balise permettant d'afficher l'utilisateur et de rediriger sur son profile lorsqu'on clique
             }
 
             echo "</div>";

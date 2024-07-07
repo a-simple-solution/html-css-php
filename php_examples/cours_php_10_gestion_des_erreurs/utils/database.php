@@ -3,7 +3,7 @@
 /* Ici, nous définissons les informations de connexion */
 $host = "localhost";
 $dbname = "bdd";
-$username = "rot";
+$username = "root";
 $password = "root";
 
 /* Création d'une instance PDO */
