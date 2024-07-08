@@ -63,12 +63,7 @@
             /* Pour afficher les utilisateurs, on utilise une balise <p> */
             echo "<p> Nom : " . $nom . " - Prénom : " . $prenom . " - Email : " . $email . " - Age : ", $age . " - Role : " . $role . "</p>";
 
-            if ($userRole == "admin") {
-                echo '<form action="delete.php" method="get">
-                    <input type="hidden" value="' . $result[0]['id'] . '" name="id" id="id">
-                    <button type="submit">Supprimer</button>
-                </form>';
-            }
+            // TODO : Ajouter un bouton delete pour supprimer l'utilisateur Bonus : passez via un formulaire
         } else {
             echo "Utilisateur introuvable";
         }
