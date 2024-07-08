@@ -1,0 +1,138 @@
+/* Le margin et le padding qui met une ligne blanche sur le site, sont ceux du body */
+body {
+    margin: 0;
+    padding: 0;
+    /* Je demande à mon body de faire au minimum la taille de l'écran */
+    min-height: 100vh;
+    /* Je transforme mon body en flexbox */
+    display: flex;
+    /* Je veux que mon body aligne les élements du haut vers le bas */
+    flex-direction: column;
+}
+
+header {
+    height: 100px;
+    width: 100%;
+    background-color: #025939;
+    /* Je transforme mon header en flexbox pour aligner correctement mon logo et les éléments de mon menu */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav {
+    height: 100px;
+    width: 100%;
+    background-color: #025939;
+    /* Je transforme ma nav en flexbox pour aligner correctement les éléments de navigation */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+/* Le contenu principal de mes pages, (sauf le footer et le header), se situe dans les balise <main> */
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: #025939;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    /* IMPORTANT : pour éviter toute déformation et afin que ma partie central prenne toute la place disponible j'utilise la propriété flex-grow */
+    /* https://developer.mozilla.org/fr/docs/Web/CSS/flex-grow */
+    flex-grow: 1;
+}
+
+a {
+    text-decoration: inherit;
+    font-style: normal;
+    color: orange;
+    font-weight: bold;
+    font-size: larger;
+
+}
+
+/* Ici j'ajoute ":hover", cela dit au navigateur que quand je passe ma souris, il doit appliquer cette propriété CSS. Passez votre curseur sur les éléments du menu */
+/* Il existe d'autre selectors de ce type, ci-dessous un lien */
+/* https://developer.mozilla.org/fr/docs/Web/CSS/:hover */
+a:hover {
+    color: orangered;
+}
+
+footer {
+    background-color: #025939;
+    height: 100px;
+    width: 100%;
+    /* Je transforme mon footer en flexbox pour aligner correctement les éléments de mon footer */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+address {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+input {
+    border: solid 1px black;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 3px;
+}
+
+button {
+    background-color: #025939;
+    color: white;
+    font-weight: bold;
+    border: 0;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding: 5px;
+}
+
+/* Cette partie concerne le css qui cible des Class que nous avons mis dans le code */
+
+.form_input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+
+
+/* Cette partie concerne le css qui cible des ID que nous avons mis dans le code */
+
+#logo {
+    height: 48px;
+    width: 48px;
+    margin-left: 20px;
+}
+
+#welcome {
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    color: orange;
+
+}
+
+#user_list {
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    width: 50px;
+    height: auto;
+}
