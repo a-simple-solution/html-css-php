@@ -24,9 +24,7 @@
     <main>
         <?php
 
-        // TODO : implémentez la suppression d'un utilisateur et vérifier que les droits nécessaire sont présents
-
-
+        // TODO : implémenter la suppression d'un utilisateur et vérifier que les droits nécessaires sont présents
 
         ?>
 

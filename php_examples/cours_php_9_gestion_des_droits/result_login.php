@@ -63,10 +63,9 @@
 
         /* On vérifie que l'utilisateur a bien été trouvé et que le mot de passe est valide */
         if (count($result) > 0 && password_verify($mot_de_passe, $result[0]["mot_de_passe"])) {
-            /* Je stock dans la variable session l'email, l'id et le role comme preuve de connexion et comme information récupérable */
-            $_SESSION["email"] = $result[0]["email"];
-            $_SESSION["id"] = $result[0]["id"];
-            $_SESSION["role"] = $result[0]["role"];
+           
+
+            // TODO : repenser à l'utilisation de la variable de Session pour faciliter les développements
 
             /* Je redirige ensuite l'utilisateur */
             header("Location: users.php");
