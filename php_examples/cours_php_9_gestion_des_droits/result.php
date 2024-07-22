@@ -49,8 +49,24 @@
 
         if ($confirmation_de_mot_de_passe == $mot_de_passe) {
 
+            /* Ici, je hash le mot de passe, afin qu'il ne soit pas en clair dans la base de données */
+            /* https://www.php.net/manual/en/function.password-hash.php */
+            $mot_de_passe_hache = password_hash($mot_de_passe, PASSWORD_DEFAULT);
 
-            // TODO : mettre à jour l'inscription pour permettre l'ajout du rôle a votre base de données
+
+            /* Ici, nous préparons la requête afin d'écrire notre utilisateur en BDD */
+            /* https://www.php.net/manual/fr/pdo.prepare.php */
+            $request = $pdo->prepare('INSERT INTO utilisateur (nom, prenom, age, email, mot_de_passe, role) VALUES (:nom, :prenom, :age, :email, :mot_de_passe, :role)');
+
+
+            /* Ici, on lie les paramètres à notre requête prepare */
+            $request->bindParam(':nom', $nom);
+            $request->bindParam(':prenom', $prenom);
+            $request->bindParam(':age', $age);
+            $request->bindParam(':email', $email);
+            $request->bindParam(':role', $role);
+            $request->bindParam(':mot_de_passe', $mot_de_passe_hache);
+
 
             /* On execute la requête */
             $request->execute();

@@ -46,6 +46,7 @@
             echo '<div id="user_list">';
             /* On parcourt ensuite le tableau de résultat afin d'afficher tous les utilisateurs */
             foreach ($result as $user) {
+
                 /* Pour afficher les utilisateurs, on utilise une balise <p> */
                 echo '<a href="user.php?id=' . $user["id"] . '"> Nom : "' . $user['nom'] . '" - Prénom : "' . $user['prenom'] . '" - Email : "' . $user['email'] . '" - Age : "' . $user["age"] . '"</a>';
             }

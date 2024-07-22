@@ -63,9 +63,13 @@
             </div>
             <br>
 
-
-            <!-- TODO: Ajouter un champs pour les rôles -->
-
+            <div class="form_input">
+                <label for="role">Role </label>
+                <select id="role" name="role">
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+            </div>
             <br>
             <button type="submit">Valider</button>
         </form>
